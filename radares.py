@@ -1,5 +1,7 @@
+from funciones import nombresprovincias
+
 from lxml import etree
-doc= etree.parse('radares.xml')
+doc = etree.parse('radares.xml')
 
 while True:
 	print ('''
@@ -12,3 +14,7 @@ while True:
 	0-Para salir.
 	''')
 	opcion=int(input("Opcion: "))
+
+	if opcion == 1:
+		for nombre in nombresprovincias(doc):
+			print(nombre)
