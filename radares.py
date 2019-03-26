@@ -15,6 +15,6 @@ while True:
 	''')
 	opcion=int(input("Opcion: "))
 
-	if opcion == 1:
+	if opcion==1:
 		for nombre in nombresprovincias(doc):
 			print(nombre)
