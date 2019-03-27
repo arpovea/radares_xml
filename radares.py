@@ -1,4 +1,6 @@
 from funciones import nombresprovincias
+from funciones import numeroradares
+from funciones import carreteraprovincia
 
 from lxml import etree
 doc = etree.parse('radares.xml')
@@ -18,3 +20,9 @@ while True:
 	if opcion==1:
 		for nombre in nombresprovincias(doc):
 			print(nombre)
+	elif opcion==2:
+		print ("La cantidad de radares de los que tenemos inforcación es:", numeroradares(doc))
+	elif opcion==3:
+		provincia=str(input("Dime una provincia: "))
+		for carretera in carreteraprovincia(provincia,doc):
+			print ("Denominacion de carretera",carretera)
