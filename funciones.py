@@ -24,6 +24,29 @@ def provinciacarretera(carretera,doc):
 
 def cordenadasradares(carretera,doc):
 	listaradares=[]
+	radares=int(doc.xpath('count(/RAIZ/PROVINCIA/CARRETERA[DENOMINACION="%s"]//RADAR)'%carretera))
+	listaradares.append(radares)
+	provincia=doc.xpath('/RAIZ/PROVINCIA/CARRETERA[DENOMINACION="%s"]/../NOMBRE/text()'%carretera)
+	for var in range (0,radares):
+		CordenadasIniciales=[]
+		PuntoInicialLA=doc.xpath('/RAIZ/PROVINCIA/CARRETERA[DENOMINACION ="%s"]/RADAR/PUNTO_INICIAL/LATITUD/text()'%carretera)
+		PuntoInicialLO=doc.xpath('/RAIZ/PROVINCIA/CARRETERA[DENOMINACION ="%s"]/RADAR/PUNTO_INICIAL/LONGITUD/text()'%carretera)
+		#print(PuntoInicialLA)
+		#print(PuntoInicialLO)
+		CordenadasIniciales.append(PuntoInicialLA)
+		CordenadasIniciales.append(PuntoInicialLO)
+		#print (CordenadaInicial[0])
+		#print (CordenadaInicial[1])
+		print ("Radares:", listaradares[0],"Latitud:",CordenadasIniciales[0],"Longitud:",CordenadasIniciales[1])
+	
+
+	#print (listaradares)
+	#print (CordenadaInicial)
+
+
+
+def cordenadasradaressss(carretera,doc):
+	listaradares=[]
 	CordenadaInicial=[]
 	
 	radares=int(doc.xpath('count(/RAIZ/PROVINCIA/CARRETERA[DENOMINACION="%s"]//RADAR)'%carretera))

@@ -34,9 +34,7 @@ while True:
 
 	elif opcion==5:
 		carretera=str(input("Dime una carretera: "))
-		for radares,cordenada in cordenadasradares(carretera,doc):
-			print (radares,cordenada)
-			#print ("La carretera", pista, "tiene", radares, "y sus cordenadas son:", cordenadas)
+		print(cordenadasradares(carretera,doc))
 	elif opcion==0:
 		print("Hasta la proxima!")
 		break;1
