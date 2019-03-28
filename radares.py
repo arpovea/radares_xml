@@ -21,8 +21,8 @@ while True:
 		for nombre in nombresprovincias(doc):
 			print(nombre)
 	elif opcion==2:
-		print ("La cantidad de radares de los que tenemos inforcación es:", numeroradares(doc))
+		print("La cantidad de radares de los que tenemos inforcación es:", numeroradares(doc))
 	elif opcion==3:
 		provincia=str(input("Dime una provincia: "))
-		for carretera in carreteraprovincia(provincia,doc):
-			print ("Denominacion de carretera",carretera)
+		for carretera,radares in carreteraprovincia(provincia,doc):
+			print ("Carretera:",carretera,"-->","Radares:",radares)
