@@ -24,6 +24,7 @@ def provinciacarretera(carretera,doc):
 
 def cordenadasradares(carretera,doc):
 	radares=int(doc.xpath('count(/RAIZ/PROVINCIA/CARRETERA[DENOMINACION="%s"]//RADAR)'%carretera))
+	
 	provincia=doc.xpath('/RAIZ/PROVINCIA/CARRETERA[DENOMINACION="%s"]/../NOMBRE/text()'%carretera)
 	for elem in provincia:
 
