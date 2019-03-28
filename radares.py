@@ -1,7 +1,8 @@
 from funciones import nombresprovincias
 from funciones import numeroradares
 from funciones import carreteraprovincia
-
+from funciones import provinciacarretera
+from funciones import cordenadasradares
 from lxml import etree
 doc = etree.parse('radares.xml')
 
@@ -26,3 +27,17 @@ while True:
 		provincia=str(input("Dime una provincia: "))
 		for carretera,radares in carreteraprovincia(provincia,doc):
 			print ("Carretera:",carretera,"-->","Radares:",radares)
+	elif opcion==4:
+		carretera=str(input("Dime una carretera: "))
+		for provincia,radares in provinciacarretera(carretera,doc):
+			print ("Pasa por la provincia de:", provincia,"y tiene", radares, "radares.")
+
+	elif opcion==5:
+		carretera=str(input("Dime una carretera: "))
+		for pista,radares,cordenadas in cordenadasradares(carretera,doc):
+			print (pista)
+			print (radares)
+			#print ("La carretera", pista, "tiene", radares, "y sus cordenadas son:", cordenadas)
+	elif opcion==0:
+		print("Hasta la proxima!")
+		break;
