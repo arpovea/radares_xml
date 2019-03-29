@@ -35,8 +35,6 @@ while True:
 	elif opcion==5:
 		carretera=str(input("Dime una carretera: "))
 		print(cordenadasradares(carretera,doc))
-		#a,e,i,o=cordenadasradares(carretera,doc)
-		#print("Latitud:%s"%a)
 	elif opcion==0:
 		print("Hasta la proxima!")
 		break;1
