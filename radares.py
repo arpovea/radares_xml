@@ -1,8 +1,4 @@
-from funciones import nombresprovincias
-from funciones import numeroradares
-from funciones import carreteraprovincia
-from funciones import provinciacarretera
-from funciones import cordenadasradares
+from funciones import *
 from lxml import etree
 doc = etree.parse('radares.xml')
 
@@ -31,10 +27,16 @@ while True:
 		carretera=str(input("Dime una carretera: "))
 		for provincia,radares in provinciacarretera(carretera,doc):
 			print ("Pasa por la provincia de:", provincia,"y tiene", radares, "radares.")
-
 	elif opcion==5:
 		carretera=str(input("Dime una carretera: "))
-		print(cordenadasradares(carretera,doc))
+		radar=1
+		for LATITUD,LONGUITUD in cordenadasradares(carretera,doc):
+			for elem,elem1 in zip(LATITUD,LONGUITUD):
+				print ("Radar:",radar)
+				print ("Latitud:",elem,"Longitud:",elem1)
+				print("Enlace openstreetmap:",end=" ")
+				print(f"http://www.openstreetmap.org/#map=15/{elem}/{elem1}")
+				radar=radar+1
 	elif opcion==0:
 		print("Hasta la proxima!")
 		break;

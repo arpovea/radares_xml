@@ -27,12 +27,11 @@ def cordenadasradares(carretera,doc):
 	radares=int(doc.xpath('count(/RAIZ/PROVINCIA/CARRETERA[DENOMINACION="%s"]//RADAR)'%carretera))
 	listaradares.append(radares)
 	radar=0
+	cordenadasLATITUD=[]
+	cordenadasLONGUITUD=[]
 	for elem in listaradares:
 		PuntoInicialLA=doc.xpath('/RAIZ/PROVINCIA/CARRETERA[DENOMINACION ="%s"]/RADAR/PUNTO_INICIAL/LATITUD/text()'%carretera)
 		PuntoInicialLO=doc.xpath('/RAIZ/PROVINCIA/CARRETERA[DENOMINACION ="%s"]/RADAR/PUNTO_INICIAL/LONGITUD/text()'%carretera)
-		PuntoFinalLA=doc.xpath('/RAIZ/PROVINCIA/CARRETERA[DENOMINACION ="%s"]/RADAR/PUNTO_FINAL/LATITUD/text()'%carretera)
-		PuntoFinalLO=doc.xpath('/RAIZ/PROVINCIA/CARRETERA[DENOMINACION ="%s"]/RADAR/PUNTO_FINAL/LONGITUD/text()'%carretera)
-		for a,e,i,o in zip(PuntoInicialLA,PuntoInicialLO,PuntoFinalLA,PuntoFinalLO):
-			radar = radar+1
-			print ("Radar:",radar)
-			print ("Punto Inicial: Latitud:",a,"Longitud:",e,"Punto Final: Latitud:",i,"Longitud:",o)
+		cordenadasLATITUD.append(PuntoInicialLA)
+		cordenadasLONGUITUD.append(PuntoInicialLO)
+		return zip (cordenadasLATITUD,cordenadasLONGUITUD)
